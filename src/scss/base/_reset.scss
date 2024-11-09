@@ -1,0 +1,9 @@
+@use '../abstracts' as *;
+
+/*  Rest to default setting */
+* {
+        margin: 0;
+        padding: 0;
+        font-size: $global-font-size;
+}
+    

@@ -1,0 +1,43 @@
+/* FONT STYLES 
+-----------------------------------------
+*/
+/* Font size */
+$global-font-size: 14px;
+
+/* Font color */
+$global-font-color: darkslategrey;
+
+
+/* LAYOUT STYLES
+-----------------------------------------
+*/
+/* Border radius */
+$global-border-radius: 6px;
+
+/* Layouts gaps */
+$global-gap: 10px;
+
+/* Background color */
+$global-bg-color: rgba(245, 245, 245, 0.5);
+
+
+/* FORM STYLES
+-----------------------------------------
+*
+/* textbox */
+$input-text-border: 1px solid rgba(245, 245, 245, 0.5);
+$input-text-font-size: 10px;
+$input-text-font-color: rgba(245, 245, 245, 0.5);
+
+/* placeholder */
+$form-placeholder-size: 12px;
+$form-placeholder-color: lightgrey;
+
+/* error messages */
+$error-message-color: red;
+
+
+/* ICONS STYLES
+-----------------------------------------
+*/
+$icon-color: brown;
