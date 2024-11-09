@@ -1,0 +1,8 @@
+@use "./variables" as *;
+
+@mixin icon-styles {
+  color: $icon-color;
+  margin-right: 5px;
+}
+
+// @grid-area-properties($gap, $columns, $rows) {}

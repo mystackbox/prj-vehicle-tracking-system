@@ -1,0 +1,76 @@
+/* include all _partials from the following directories: */
+/* You can add global styles to this file, and also import other style files */
+/* FONT STYLES 
+-----------------------------------------
+*/
+/* Font size */
+/* Font color */
+/* LAYOUT STYLES
+-----------------------------------------
+*/
+/* Border radius */
+/* Layouts gaps */
+/* Background color */
+/* FORM STYLES
+-----------------------------------------
+*
+/* textbox */
+/* placeholder */
+/* error messages */
+/* ICONS STYLES
+-----------------------------------------
+*/
+/* bind the following _partials to scss/styles.scss */
+/* include all _partials from the following directories: */
+/* You can add global styles to this file, and also import other style files */
+/*  Rest to default setting */
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+/* include all _partials from the following directories: */
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+/* include all _partials from the following directories: */
+/* You can add global styles to this file, and also import other style files */
+/* include all _partials from the following directories: */
+/* You can add global styles to this file, and also import other style files */
+/*  Site header */
+/*  
+    Grid layout structure 
+    Mobile-first approach
+*/
+.master-page-grid {
+  margin: auto;
+  max-width: 900px;
+}
+
+/* include all _partials from the following directories: */
+/* You can add global styles to this file, and also import other style files */
+/*  Site footer */
+/* include all _partials from the following directories: */
+/* You can add global styles to this file, and also import other style files */
+/* include all _partials from the following directories: */
+/* You can add global styles to this file, and also import other style files */
+/* include all _partials from the following directories: */
+/* You can add global styles to this file, and also import other style files */
+.page-content #contact-us-content {
+  display: flex;
+  flex-direction: column;
+}
+.page-content #contact-us-content .content-map {
+  border: 1px solid lightgrey;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* include all _partials from the following directories: */
+/* You can add global styles to this file, and also import other style files */
+
+/*# sourceMappingURL=styles.css.map */

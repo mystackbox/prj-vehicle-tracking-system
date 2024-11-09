@@ -1,0 +1,13 @@
+@use '../abstracts' as *;
+
+.page-content #contact-us-content {
+    display: flex;
+    flex-direction: column;
+
+    .content-map {
+        border: 1px solid lightgrey;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    
+}

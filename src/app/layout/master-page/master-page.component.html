@@ -1,0 +1,26 @@
+<div class="master-page-grid">
+    
+  <section class="navbar-container">
+    <app-nav-bar></app-nav-bar>
+  </section>
+
+  <header class="header-container grid-area-common">
+    <app-header></app-header>
+  </header>
+
+  <section class="page-content-container">
+    <section class="page-content-main grid-area-common">
+      <div class="page-title">
+        {{ title }}
+      </div>
+      <div class="page-content">
+        <router-outlet></router-outlet>
+      </div>
+    </section>
+  </section>
+
+  <footer class="footer-container grid-area-common">
+    <app-footer></app-footer>
+  </footer>
+
+</div>
