@@ -4,6 +4,7 @@ import { TitleStrategy, RouterStateSnapshot } from "@angular/router";
 
 @Injectable()
 export class pageTitle extends TitleStrategy {
+  
   constructor(private readonly title: Title) {
     super();
   }
@@ -11,13 +12,8 @@ export class pageTitle extends TitleStrategy {
   override updateTitle(routerState: RouterStateSnapshot) {
 
     const title = this.buildTitle(routerState);
-    // if (title !== undefined) {
-    //   this.title.setTitle(`Monakali .Inc | ${title}`);
-    // }
-
-    if (title !== undefined) {
-        this.title.setTitle(`Monakali .Inc | ${title}`);
+     if (title !== undefined) {
+        this.title.setTitle(`V-Tracker - ${title}`);
       }
-
   }
 }

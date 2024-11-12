@@ -27,14 +27,21 @@
 * {
   margin: 0;
   padding: 0;
-  font-size: 14px;
+  font-size: 12px;
+}
+
+body {
+  background-image: url("/bg-img/wall-tones-bg8.jpg");
+  background-size: 30%;
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 /* include all _partials from the following directories: */
 /* You can add global styles to this file, and also import other style files */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 /* include all _partials from the following directories: */
@@ -42,13 +49,65 @@ body {
 /* include all _partials from the following directories: */
 /* You can add global styles to this file, and also import other style files */
 /*  Site header */
+.header-section {
+  text-transform: uppercase;
+  border-bottom: 1px solid lightgrey;
+}
+.header-section .page-title,
+.header-section .page-description {
+  margin: 15px 0;
+}
+.header-section .page-title {
+  font-size: 18px;
+}
+
+/* include all _partials from the following directories: */
+/* You can add global styles to this file, and also import other style files */
 /*  
     Grid layout structure 
     Mobile-first approach
 */
-.master-page-grid {
+.master-page-container {
   margin: auto;
   max-width: 900px;
+  -webkit-box-shadow: 0px 0px 27px 11px rgba(0, 0, 0, 0.59);
+  -moz-box-shadow: 0px 0px 27px 11px rgba(0, 0, 0, 0.59);
+  box-shadow: 0px 0px 27px 11px rgba(0, 0, 0, 0.59);
+}
+.master-page-container .master-page-grid {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "navbar" "header" "main" "footer";
+}
+
+.grid-area {
+  background-color: #f8f9fa;
+  padding: 15px;
+}
+
+/* Navbar Grid Area */
+.navbar-container {
+  grid-area: navbar;
+  padding: 0px;
+}
+
+/* Header Grid Area */
+.header-container {
+  background-color: #fff;
+  grid-area: header;
+}
+
+/* Page Main Area */
+.page-content-container {
+  background-color: #fff;
+  grid-area: main;
+}
+
+/* Footer Grid Area */
+.footer-container {
+  grid-area: footer;
 }
 
 /* include all _partials from the following directories: */
@@ -58,16 +117,119 @@ body {
 /* You can add global styles to this file, and also import other style files */
 /* include all _partials from the following directories: */
 /* You can add global styles to this file, and also import other style files */
-/* include all _partials from the following directories: */
-/* You can add global styles to this file, and also import other style files */
-.page-content #contact-us-content {
+#home-page-container {
   display: flex;
   flex-direction: column;
 }
-.page-content #contact-us-content .content-map {
-  border: 1px solid lightgrey;
+#home-page-container .content-title {
+  background-image: url("/img/img-slider17.jpg");
+  background-size: cover;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 5px 0;
+}
+#home-page-container .content-title .vehicle-tracker-image {
+  height: 65px;
+  margin: 5px 0;
+}
+#home-page-container .content-title .title-name {
+  font-size: 20px;
+  padding: 5px 0;
+}
+#home-page-container .content-title .dashboard-button {
+  background-color: red;
+  color: #fff;
+  padding: 5px 20px;
+  margin: 5px 0;
+}
+#home-page-container .content-title .dashboard-button:hover {
+  background-color: orange;
+  border-color: orange;
+}
+#home-page-container hr {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+#home-page-container .cards-section {
+  padding: 15px 0;
+}
+#home-page-container .cards-section .cards-container {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+#home-page-container .cards-section .cards-container .card-container {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 7px;
   padding: 10px;
-  margin-top: 10px;
+  text-align: center;
+  min-width: 20%;
+  margin-bottom: 5px;
+}
+#home-page-container .cards-section .cards-container .card-container .card-image,
+#home-page-container .cards-section .cards-container .card-container .card-text,
+#home-page-container .cards-section .cards-container .card-container .card-btn {
+  margin: 5px 0;
+}
+#home-page-container .cards-section .cards-container .card-container .card-image {
+  height: 35px;
+}
+#home-page-container .cards-section .cards-container .card-container .card-text {
+  font-weight: bold;
+  min-height: 35px;
+}
+#home-page-container .cards-section .cards-container .card-container .card-btn {
+  background-color: orange;
+  border: none;
+  padding: 3px 20px;
+  color: #fff;
+  min-width: 60px;
+}
+#home-page-container .cards-section .cards-container .card-container .card-btn:hover {
+  background-color: brown;
+}
+#home-page-container .cards-section .cards-container .card-container:hover {
+  box-shadow: none;
+  cursor: pointer;
+}
+#home-page-container .description {
+  margin: auto;
+  max-width: 600px;
+  font-size: 13px;
+}
+
+@media screen and (max-width: 390px) {
+  #home-page-container .cards-section .cards-container {
+    display: flex;
+    flex-direction: column;
+  }
+  #home-page-container .cards-section .cards-container .card-container .card-btn {
+    padding: 4px 20px;
+  }
+}
+/* include all _partials from the following directories: */
+/* You can add global styles to this file, and also import other style files */
+#dashboard-page-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  row-gap: 5px;
+  grid-template-areas: "content-map" "content-filter " "content-list";
+}
+#dashboard-page-container .grid-area {
+  background-color: #f8f9fa;
+}
+#dashboard-page-container .content-map {
+  grid-area: content-map;
+}
+#dashboard-page-container .content-filter {
+  grid-area: content-filter;
+}
+#dashboard-page-container .content-list {
+  grid-area: content-list;
 }
 
 /* include all _partials from the following directories: */

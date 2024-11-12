@@ -1,1 +1,70 @@
-<p>home works!</p>
+<div id="home-page-container" class="home-page-container">
+  <section class="content-title">
+    <img
+      src="img/tracking3.png"
+      alt="tracker image" 
+      class="vehicle-tracker-image responsive"
+    />
+    <div class="title-name">vehicles tracking System</div>
+    <div (click)="redirectToDashboard()" class="btn btn-sm dashboard-button">
+    <fa-icon class="card-icon" [icon]="['fas', 'location-arrow']"></fa-icon>
+    START TRACKING
+    </div>
+  </section>
+
+  <section class="cards-section">
+
+    <hr />
+
+    <div class="cards-container">
+
+      <div class="card-container card-left" (click)="redirectToDashboard()">
+        <img src="img/tracking.png" alt="tracker image" class="card-image" />
+        <div class="card-text">Live Vehicles Tracking</div>
+        <div class="card-btn btn btn-sm" (click)="redirectToDashboard()">
+          MORE
+          <fa-icon
+            class="card-icon"
+            [icon]="['fas', 'chevron-right']"
+          ></fa-icon>
+        </div>
+      </div>
+
+      <div class="card-container card-center" (click)="redirectToDashboard()">
+        <img src="img/responsive.png" alt="tracker image" class="card-image" />
+        <div class="card-text">Responsive UI Design</div>
+        <div class="card-btn btn btn-sm" (click)="redirectToDashboard()">
+          MORE
+          <fa-icon
+            class="card-icon"
+            [icon]="['fas', 'chevron-right']"
+          ></fa-icon>
+        </div>
+      </div>
+
+      <div class="card-container card-right" (click)="redirectToDashboard()">
+        <img src="img/search-bar.png" alt="tracker image" class="card-image" />
+        <div class="card-text">Search and Filter</div>
+        <div class="card-btn btn btn-sm" (click)="redirectToDashboard()">
+          MORE
+          <fa-icon
+            class="card-icon"
+            [icon]="['fas', 'chevron-right']"
+          ></fa-icon>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="description">
+    <hr />
+    Start tracking and monitoring your vehicles by locating them on the map, at
+    anytime, anywhere with real-time geolocation data. <b>V-Tracker</b> system allows
+    you to click on a vehicle from the list to center and zoom in on its
+    location on the map.
+    The system is also accessible on your mobile devices, varying from smartphones, tablets, to desktop screen sizes.
+  </section>
+  
+</div>

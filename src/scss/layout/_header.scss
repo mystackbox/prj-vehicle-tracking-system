@@ -1,5 +1,6 @@
 /*  Site header */
 @use '../abstracts' as *;
 
-
-
+.header-section {
+    @include page-header;  
+}

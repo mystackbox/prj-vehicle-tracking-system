@@ -1,13 +1,27 @@
 @use '../abstracts' as *;
 
-.page-content #contact-us-content {
-    display: flex;
-    flex-direction: column;
+#dashboard-page-container {
+
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto ;
+    row-gap: 5px;
+    grid-template-areas:"content-map"
+                        "content-list";
 
     .content-map {
-        border: 1px solid lightgrey;
-        padding: 10px;
-        margin-top: 10px;
+        grid-area: content-map;
+        box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 24px;
+        padding: 5px;
     }
-    
+
+    .content-list {
+        grid-area: content-list;
+        display: flex;
+        flex-direction: column;
+        row-gap: 3px;
+       
+      
+    }  
 }
