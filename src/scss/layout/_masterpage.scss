@@ -1,9 +1,54 @@
+@use '../abstracts' as *;
 /*  
     Grid layout structure 
     Mobile-first approach
 */
 
-.master-page-grid { 
+.master-page-container {
     margin: auto;
     max-width: 900px;
- }
+   
+    @include element-box-shadow;
+
+    .master-page-grid { 
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto ;
+        grid-template-areas:"navbar"
+                            "header"
+                            "main"
+                            "footer";
+    }
+}
+
+.grid-area {
+    background-color: #fff;
+    padding: 15px; 
+}
+
+/* Navbar Grid Area */
+.navbar-container {
+    grid-area: navbar;
+    padding: 0px;
+    background-color: #f8f9fa;
+}
+
+/* Header Grid Area */
+.header-container {
+    grid-area: header;
+}
+
+/* Page Main Area */
+.page-content-container {
+    background-color: #fff;
+    grid-area: main; 
+}
+ 
+/* Footer Grid Area */
+.footer-container {
+    grid-area: footer;
+     background-color: #f8f9fa;
+}
+
+

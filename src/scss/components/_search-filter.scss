@@ -1,1 +1,56 @@
 @use '../abstracts' as *;
+
+.data-filters-container {
+
+    .row {
+            padding: 15px 0;
+    }
+
+    .search-btn, .clear-btn {
+        border: none;
+        color: #fff;
+        text-align: center;
+        border-radius: 0px;
+
+        &:hover {
+            background-color: red; 
+        }
+    }
+
+    .search-btn {
+        background-color: orange; 
+    }
+
+    .clear-btn {
+        background-color: grey; 
+    }
+
+    ::placeholder, .filter-select{
+        color: grey;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #dashboard-page-container {
+        .content-list {
+            .data-list-container {
+                row-gap: 15px;
+                box-shadow:none;
+                .vehicle-data { 
+                    flex-direction: column;
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    
+                    .v-data-item {
+                        padding-bottom: 3px;
+                        border-bottom: 1px solid  rgba(149, 157, 165, 0.5);  
+
+                        &:nth-child(4) {
+                            text-align: left;
+                            border-bottom: none;
+                        }
+                    }
+                 }
+            }
+        }
+    }
+}

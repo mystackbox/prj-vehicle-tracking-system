@@ -1,26 +1,28 @@
-<div class="master-page-grid">
-    
-  <section class="navbar-container">
-    <app-nav-bar></app-nav-bar>
-  </section>
+<div class="master-page-container">
 
-  <header class="header-container grid-area-common">
-    <app-header></app-header>
-  </header>
+  <!--Grid-Layout container-->
+  <div class="master-page-grid">
 
-  <section class="page-content-container">
-    <section class="page-content-main grid-area-common">
-      <div class="page-title">
-        {{ title }}
-      </div>
-      <div class="page-content">
-        <router-outlet></router-outlet>
-      </div>
+    <!--navbar grid-area-->
+    <section class="navbar-container grid-area">
+      <app-nav-bar></app-nav-bar>
     </section>
-  </section>
 
-  <footer class="footer-container grid-area-common">
-    <app-footer></app-footer>
-  </footer>
+    <!--header grid-area-->
+    <header class="header-container grid-area">
+      <app-header></app-header>
+    </header>
+
+    <!--page-content grid-area-->
+    <section class="page-content-container grid-area">
+          <router-outlet></router-outlet>
+    </section>
+
+     <!--footer grid-area-->
+    <footer class="footer-container grid-area">
+      <app-footer></app-footer>
+    </footer>
+
+  </div>
 
 </div>

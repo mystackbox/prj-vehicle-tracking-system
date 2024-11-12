@@ -1,8 +1,27 @@
 @use "./variables" as *;
 
+@mixin page-header {
+
+  text-transform: uppercase;
+  border-bottom: 1px solid lightgrey;
+  
+  .site-name, .page-title,
+  .page-description {
+    margin: 15px 0;
+  }
+
+  .page-title {
+    font-size: 18px;
+  }
+}
+
+@mixin element-box-shadow {
+  -webkit-box-shadow: 0px 0px 27px 11px rgba(0,0,0,0.59);
+  -moz-box-shadow: 0px 0px 27px 11px rgba(0,0,0,0.59);
+  box-shadow: 0px 0px 27px 11px rgba(0,0,0,0.59);
+}
+
 @mixin icon-styles {
   color: $icon-color;
   margin-right: 5px;
 }
-
-// @grid-area-properties($gap, $columns, $rows) {}

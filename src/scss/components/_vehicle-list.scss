@@ -1,0 +1,72 @@
+.data-list-container {
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 24px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+
+    .vehicle-data {
+        display: flex;
+        flex-direction: row;
+        background-color: #f8f9fa;  
+        vertical-align: bottom;   
+        cursor: pointer;
+        padding: 3px;
+
+        
+        .v-data-item {
+            flex-basis: 25%;
+            padding-top: 4px;
+            padding-left: 4px;
+        }
+
+        .v-data-item:nth-child(4) {
+            text-align: right;
+        }
+      
+        .card-icon {
+            margin-right: 5px;
+        }
+
+        .details-btn {
+            padding: 2px 15px;
+            border: none;
+            font-size: 11px;
+            background-color: red;
+            color: #fff;
+            margin-right: 6px;
+
+            &:hover {
+                background-color: orange;
+            }
+        }
+
+        &:hover {
+            background-color: #FFF5EE;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #dashboard-page-container {
+        .content-list {
+            .data-list-container {
+                row-gap: 15px;
+                box-shadow:none;
+                .vehicle-data { 
+                    flex-direction: column;
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    
+                    .v-data-item {
+                        padding-bottom: 3px;
+                        border-bottom: 1px solid  rgba(149, 157, 165, 0.5);  
+
+                        &:nth-child(4) {
+                            text-align: left;
+                            border-bottom: none;
+                        }
+                    }
+                 }
+            }
+        }
+    }
+}

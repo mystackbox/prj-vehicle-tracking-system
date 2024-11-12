@@ -1,5 +1,122 @@
 @use '../abstracts' as *;
 
- 
+#home-page-container {
 
+    display: flex;
+    flex-direction: column;
 
+    .content-title {
+        background-image: url('/img/img-slider17.jpg');
+        background-size: cover;
+
+        text-transform: uppercase;
+        color: #fff;
+        padding: 5px 0;
+
+        .vehicle-tracker-image {
+            height: 65px;
+            margin: 5px 0;
+        }
+
+        .title-name {
+            font-size: $global-font-size + 8px;
+            padding: 5px 0;
+        }
+
+        .dashboard-button {
+            background-color: red;
+            color: #fff;
+            padding: 5px 20px;
+            margin: 5px 0;
+
+            &:hover {
+                background-color: orange;
+                border-color: orange;
+            }
+        }
+    }
+
+    hr {
+        width: 80%;
+        margin: 0 auto;
+        padding: 10px 0;
+    }
+
+    .cards-section {
+        padding: 15px 0;
+
+        .cards-container {
+            margin-bottom: 5px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 30px;
+
+            .card-container {
+
+                box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                border-radius: 7px;
+                padding: 10px;
+                text-align: center;
+                min-width: 180px;
+                margin-bottom: 5px;
+
+                .card-image,
+                .card-text,
+                .card-btn {
+                    margin: 8px 0;
+                }
+
+                .card-image {
+                    height: 40px;
+                }
+
+                .card-text {
+                    font-weight: bold;
+                }
+
+                .card-btn {
+                    background-color: orange;
+                    border: none;
+                    padding: 3px 20px;
+                    color: #fff;
+                    min-width: 130px;
+
+                    &:hover {
+                        background-color: brown;
+                    }
+                }
+
+                &:hover {
+                    box-shadow: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .description {
+
+        margin: auto;
+        max-width: 600px;
+        font-size: $global-font-size + 1;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    #home-page-container {
+        .cards-section {
+            .cards-container {
+                // display: flex;
+                flex-direction: column;
+
+                .card-container {
+                    .card-btn {
+                        padding: 4px 50px;
+                    }
+                }
+            }
+        }
+    }
+}

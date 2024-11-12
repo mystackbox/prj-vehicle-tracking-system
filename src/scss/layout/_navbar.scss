@@ -1,1 +1,23 @@
 @use '../abstracts' as *;
+
+@media screen and (max-width: 992px) {
+
+    .navbar {
+        button {
+            margin-bottom: 5px;
+        }
+        .navbar-nav {
+            text-align: left;
+            .nav-link {
+                border-top: 1px solid  rgba(149, 157, 165, 0.3); 
+            }
+        }
+    }
+  
+}
+
+@media screen and (min-width: 992px) {
+ .navbar-brand {
+    display: none;
+ }
+}

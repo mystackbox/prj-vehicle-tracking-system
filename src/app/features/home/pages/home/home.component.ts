@@ -9,11 +9,7 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   constructor(private router: Router) {}
 
-  redirectToContactUs() {
-    this.router.navigate(['/contact']);
-  }
-
-  redirectToServices() {
-    this.router.navigate(['/services']);
+  redirectToDashboard() {
+    this.router.navigate(['/dashboard']);
   }
 }

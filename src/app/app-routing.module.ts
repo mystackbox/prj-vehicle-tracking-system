@@ -20,6 +20,7 @@ const routes: Routes = [
           ),
         data: {
           title: 'Home',
+          description: 'welcome to v-tracker, your 24hrs vehicle tracking system.'        
         },
       },
       {
@@ -30,6 +31,7 @@ const routes: Routes = [
           ),
         data: {
           title: 'Home',
+          description: 'welcome to v-tracker, your 24hrs vehicle tracking system.',
         },
       },
 
@@ -41,6 +43,7 @@ const routes: Routes = [
           ),
         data: {
           title: 'Dashboard',
+          description: 'track, locate, and monitor your vehicles on real-time.',
         },
       },
 
@@ -52,6 +55,7 @@ const routes: Routes = [
           ),
         data: {
           title: 'Page not found',
+          description: 'sorry, the page you are looking for was not found.'
         },
       },
       {
