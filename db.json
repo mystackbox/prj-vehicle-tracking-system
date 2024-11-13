@@ -1,0 +1,115 @@
+{
+  "vehicles": [
+    {
+      "id": "1",
+      "vehicleRegNo": "dt 23 db gp",
+      "vehicleType": "3",
+      "vehicleLocations": [
+        {
+            "lat": "-26.022",
+            "lon": "28.060",
+            "locTime": "09:23"
+          },
+          {
+              "lat": "-26.045",
+              "lon": "28.059",
+              "locTime": "09:56"
+            },
+          {
+              "lat": "-26.020",
+              "lon": "28.089",
+              "locTime": "10:13"
+          }
+      ]
+    },
+    {
+      "id": "2",
+      "vehicleRegNo": "kb 77 3r gp",
+      "vehicleType": "1",
+      "vehicleLocations":[
+        {
+            "lat": "-25.940",
+            "lon": "28.106",
+            "locTime": "14:31"
+          },
+          {
+              "lat": "-26.055",
+              "lon": "28.030",
+              "locTime": "14:53"
+            }
+            ,
+          {
+              "lat": "-26.055",
+              "lon": "28.093",
+              "locTime": "15:09"
+            }
+      ]
+    },
+    {
+      "id": "3",
+      "vehicleRegNo": "fd 12 cs gp",
+      "vehicleType": "1",
+      "vehicleLocations":[
+        {
+            "lat": "-26.016",
+            "lon": "28.029",
+            "locTime": "11:47"
+          },
+          {
+              "lat": "-26.028",
+              "lon": "28.060",
+              "locTime": "12:22"
+            },
+            {
+                "lat": "-26.036",
+                "lon": "28.079",
+                "locTime": "12:41"
+              }
+      ]
+    },
+    {
+      "id": "4",
+      "vehicleRegNo": "tt 43 ke gp",
+      "vehicleType": "3",
+      "vehicleLocations":[
+        {
+            "lat": "-26.018",
+            "lon": "28.081",
+            "locTime": "07:24"
+          },
+          {
+              "lat": "-25.982",
+              "lon": "28.075",
+              "locTime": "07:52"
+            },
+            {
+                "lat": "-26.003",
+                "lon": "28.130",
+                "locTime": "08:13"
+              }
+      ]
+    },
+    {
+      "id": "5",
+      "vehicleRegNo": "js 54 nv gp",
+      "vehicleType": "2",
+      "vehicleLocations":[
+        {
+            "lat": "-26.023",
+            "lon": "28.102",
+            "locTime": "11:44"
+          },
+          {
+              "lat": "-26.050",
+              "lon": "28.078",
+              "locTime": "12:09"
+            },
+            {
+                "lat": "-26.058",
+                "lon": "28.059",
+                "locTime": "12:33"
+              }
+      ]
+    }
+  ]
+}

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class MapComponent {
 
+  mapOptions: google.maps.MapOptions = {
+    center: { lat: 48.8588548, lng: 2.347035 },
+  };
+
 }
