@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "watch-css": "sass ./src/scss/styles.scss ./src/styles.css --watch"
+    "watch-css": "sass ./src/scss/styles.scss ./src/styles.css --watch",
+    "json-server": "json-server --watch db.json"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +28,7 @@
     "bootstrap": "^5.3.3",
     "font-awesome": "^4.7.0",
     "jquery": "^3.7.1",
+    "json-server": "^1.0.0-beta.3",
     "rxjs": "~7.8.0",
     "sass": "^1.80.6",
     "tslib": "^2.3.0",
