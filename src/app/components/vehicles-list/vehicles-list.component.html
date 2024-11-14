@@ -1,63 +1,53 @@
-<div class="data-list-container">
+<div *ngIf="status === 'ready'; errorMessage" class="data-list-container">
 
-    <div class="vehicle-data">
+    <div class="vehicle-data v-data-headings">
+
         <div class="v-reg-number v-data-item"> 
-            <fa-icon class="card-icon" [icon]="['fas', 'car']"></fa-icon> 12 db 55 gp
+            <fa-icon class="data-icon" [icon]="['fas', 'id-card-clip']"></fa-icon>  REG NO.
         </div>
         <div class="v-location v-data-item">
-            <fa-icon class="card-icon" [icon]="['fas', 'location-dot']"></fa-icon> -335, 122
+            <fa-icon class="data-icon" [icon]="['fas', 'location-dot']"></fa-icon>  COORDINATES
         </div>
         <div class="v-loc-time v-data-item">
-            <fa-icon class="card-icon" [icon]="['fas', 'clock']"></fa-icon> 14:32pm
+            <fa-icon class="data-icon" [icon]="['fas', 'clock']"></fa-icon>  TIME STEMP
+        </div>
+
+        <div class="v-loc-time v-data-item">
+            <fa-icon class="data-icon" [icon]="['fas', 'car']"></fa-icon>  VEHICLE TYPE
         </div>
         <div class="v-details-btns v-data-item">
-            <input type="button" class="details-btn" name="v-details" value="ROUTES"/>
+            <fa-icon class="data-icon" [icon]="['fas', 'location-arrow']"></fa-icon> 
+            ROUTE PATH
+        </div>
+
+    </div>
+
+    <div *ngFor="let vehicle of data; let i = index " class="vehicle-data">
+        <div class="v-reg-number v-data-item v-data-content"> 
+            <b>{{i+1 }}. </b>
+            <fa-icon class="data-icon mobile-icon" [icon]="['fas', 'id-card-clip']"></fa-icon> 
+            {{vehicle.vehicleRegNo}}
+        </div>
+        <div class="v-location v-data-item v-data-content">
+            <fa-icon class="data-icon  mobile-icon" [icon]="['fas', 'location-dot']"></fa-icon> 
+         {{vehicle.location.at(-1).position.lat}},  {{vehicle.location.at(-1).position.lng}}
+        </div>
+        <div class="v-loc-time v-data-item v-data-content">
+            <fa-icon class="data-icon  mobile-icon" [icon]="['fas', 'clock']"></fa-icon>
+            {{vehicle.location.at(-1).locTime}} {{+vehicle.location.at(-1).locTime.substring(0,2) < 12 ? ' am ' : ' pm '}} 
+        </div>
+
+        <div class="v-type v-data-item v-data-content">
+            <fa-icon class="data-icon  mobile-icon" [icon]="['fas', 'car']"></fa-icon>
+           {{ (vehicle.vehicleType == 1 ? ' bakkie ' : ' track ')}}
+       </div>
+        <div class="v-details-btns v-data-item v-data-content">
+            <input type="button" class="details-btn" name="v-details" value="ROUTE" onclick=""/>
         </div>
     </div>
 
-    <div class="vehicle-data">
-        <div class="v-reg-number v-data-item"> 
-            <fa-icon class="card-icon" [icon]="['fas', 'car']"></fa-icon> 12 db 55 gp
-        </div>
-        <div class="v-location v-data-item">
-            <fa-icon class="card-icon" [icon]="['fas', 'location-dot']"></fa-icon> -335, 122
-        </div>
-        <div class="v-loc-time v-data-item">
-            <fa-icon class="card-icon" [icon]="['fas', 'clock']"></fa-icon> 14:32pm
-        </div>
-        <div class="v-details-btns v-data-item">
-            <input type="button" class="details-btn" name="v-details" value="ROUTES"/>
-        </div>
-    </div>
-
-    <div class="vehicle-data">
-        <div class="v-reg-number v-data-item"> 
-            <fa-icon class="card-icon" [icon]="['fas', 'car']"></fa-icon> 12 db 55 gp
-        </div>
-        <div class="v-location v-data-item">
-            <fa-icon class="card-icon" [icon]="['fas', 'location-dot']"></fa-icon> -335, 122
-        </div>
-        <div class="v-loc-time v-data-item">
-            <fa-icon class="card-icon" [icon]="['fas', 'clock']"></fa-icon> 14:32pm
-        </div>
-        <div class="v-details-btns v-data-item">
-            <input type="button" class="details-btn" name="v-details" value="ROUTES"/>
-        </div>
-    </div>
-
-    <div class="vehicle-data">
-        <div class="v-reg-number v-data-item"> 
-            <fa-icon class="card-icon" [icon]="['fas', 'car']"></fa-icon> 12 db 55 gp
-        </div>
-        <div class="v-location v-data-item">
-            <fa-icon class="card-icon" [icon]="['fas', 'location-dot']"></fa-icon> -335, 122
-        </div>
-        <div class="v-loc-time v-data-item">
-            <fa-icon class="card-icon" [icon]="['fas', 'clock']"></fa-icon> 14:32pm
-        </div>
-        <div class="v-details-btns v-data-item">
-            <input type="button" class="details-btn" name="v-details" value="ROUTES"/>
-        </div>
-    </div>
+    <ng-template #errorMessage>
+        <div>Sorry, {{status}}.</div>
+     </ng-template>
 
 </div>

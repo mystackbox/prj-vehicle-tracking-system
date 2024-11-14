@@ -2,6 +2,12 @@
 [options]="mapOptions"
 height="30vh"
 width="100%"
+[zoom]="zoom"
 >
+
+<map-marker *ngFor="let vehicle of data"
+[position]="vehicle.location.at(-1).position"
+[options]="markerOptions">
+</map-marker>
 
 </google-map>
