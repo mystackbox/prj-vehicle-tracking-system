@@ -3,113 +3,158 @@
     {
       "id": "1",
       "vehicleRegNo": "dt 23 db gp",
-      "vehicleType": "3",
-      "vehicleLocations": [
+      "vehicleType": 2,
+      "location": [
         {
-            "lat": "-26.022",
-            "lon": "28.060",
-            "locTime": "09:23"
+          "position": {
+            "lat": -26.022,
+            "lng": 28.060
           },
-          {
-              "lat": "-26.045",
-              "lon": "28.059",
-              "locTime": "09:56"
-            },
-          {
-              "lat": "-26.020",
-              "lon": "28.089",
-              "locTime": "10:13"
-          }
+          "locTime": "09:23"
+        },
+        {
+          "position": {
+            "lat": -26.045,
+            "lng": 28.059
+          },
+
+          "locTime": "09:56"
+        },
+        {
+          "position": {
+            "lat": -26.020,
+            "lng": 28.089
+          },
+
+          "locTime": "10:13"
+        }
       ]
     },
     {
       "id": "2",
       "vehicleRegNo": "kb 77 3r gp",
-      "vehicleType": "1",
-      "vehicleLocations":[
+      "vehicleType": 1,
+      "location": [
         {
-            "lat": "-25.940",
-            "lon": "28.106",
-            "locTime": "14:31"
+          "position": {
+            "lat": -25.940,
+            "lng": 28.106
           },
-          {
-              "lat": "-26.055",
-              "lon": "28.030",
-              "locTime": "14:53"
-            }
-            ,
-          {
-              "lat": "-26.055",
-              "lon": "28.093",
-              "locTime": "15:09"
-            }
+
+          "locTime": "14:31"
+        },
+        {
+          "position": {
+            "lat": -26.055,
+            "lng": 28.030
+          },
+
+          "locTime": "14:53"
+        },
+        {
+          "position": {
+            "lat": -26.055,
+            "lng": 28.093
+          },
+         
+          "locTime": "15:09"
+        }
       ]
     },
     {
       "id": "3",
       "vehicleRegNo": "fd 12 cs gp",
-      "vehicleType": "1",
-      "vehicleLocations":[
+      "vehicleType": 1,
+      "location": [
         {
-            "lat": "-26.016",
-            "lon": "28.029",
-            "locTime": "11:47"
+          "position": {
+            "lat": -26.016,
+            "lng": 28.029
           },
-          {
-              "lat": "-26.028",
-              "lon": "28.060",
-              "locTime": "12:22"
-            },
-            {
-                "lat": "-26.036",
-                "lon": "28.079",
-                "locTime": "12:41"
-              }
+          
+          "locTime": "11:47"
+        },
+        {
+          "position": {
+            "lat": -26.028,
+            "lng": 28.060
+          },
+          
+          "locTime": "12:22"
+        },
+        {
+          "position": {
+            "lat": -26.036,
+            "lng": 28.079
+          },
+          
+          "locTime": "12:41"
+        }
       ]
     },
+
     {
       "id": "4",
       "vehicleRegNo": "tt 43 ke gp",
-      "vehicleType": "3",
-      "vehicleLocations":[
+      "vehicleType": "2",
+      "location": [
         {
-            "lat": "-26.018",
-            "lon": "28.081",
-            "locTime": "07:24"
+          "position": {
+            "lat": -26.018,
+            "lng": 28.081
           },
-          {
-              "lat": "-25.982",
-              "lon": "28.075",
-              "locTime": "07:52"
-            },
-            {
-                "lat": "-26.003",
-                "lon": "28.130",
-                "locTime": "08:13"
-              }
+          
+          "locTime": "07:24"
+        },
+        {
+          "position": {
+            "lat": -25.982,
+            "lng": 28.075
+          },
+          
+          "locTime": "07:52"
+        },
+        {
+          "position": {
+            "lat": -26.003,
+            "lng": 28.131
+          },
+
+          "locTime": "08:13"
+        }
       ]
     },
     {
       "id": "5",
       "vehicleRegNo": "js 54 nv gp",
-      "vehicleType": "2",
-      "vehicleLocations":[
+      "vehicleType": 2,
+      "location": [
         {
-            "lat": "-26.023",
-            "lon": "28.102",
-            "locTime": "11:44"
+          "position": {
+            "lat": -26.023,
+            "lng": 28.102
           },
-          {
-              "lat": "-26.050",
-              "lon": "28.078",
-              "locTime": "12:09"
-            },
-            {
-                "lat": "-26.058",
-                "lon": "28.059",
-                "locTime": "12:33"
-              }
+          
+          "locTime": "11:44"
+        },
+        {
+          "position": {
+            "lat": -26.050,
+            "lng": 28.078
+          },
+          
+          "locTime": "12:09"
+        },
+        {
+          "position": {
+            "lat": -26.058,
+            "lng": 28.059
+          },
+          
+          "locTime": "12:33"
+        }
       ]
     }
+    
   ]
 }

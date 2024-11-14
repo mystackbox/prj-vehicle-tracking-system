@@ -4,6 +4,10 @@
     flex-direction: column;
     row-gap: 2px;
 
+    .v-data-headings {
+        font-weight: bold;
+    }
+
     .vehicle-data {
         display: flex;
         flex-direction: row;
@@ -19,12 +23,21 @@
             padding-left: 4px;
         }
 
-        .v-data-item:nth-child(4) {
+        .v-type {
+            text-transform: capitalize;
+        }
+
+        .v-reg-number, .v-loc-time {
+            text-transform: uppercase;
+        }
+
+        .v-data-item:nth-child(5) {
             text-align: right;
         }
       
-        .card-icon {
+        .data-icon {
             margin-right: 5px;
+            color: grey;
         }
 
         .details-btn {
@@ -52,17 +65,26 @@
             .data-list-container {
                 row-gap: 15px;
                 box-shadow:none;
+
+                .v-data-headings {
+                    display: none;
+                }
+                
                 .vehicle-data { 
                     flex-direction: column;
                     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-                    
+
+
                     .v-data-item {
                         padding-bottom: 3px;
                         border-bottom: 1px solid  rgba(149, 157, 165, 0.5);  
 
-                        &:nth-child(4) {
+                        &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+                            padding-left: 17px;
+                        }
+
+                        &:nth-child(5) {
                             text-align: left;
-                            border-bottom: none;
                         }
                     }
                  }
@@ -70,3 +92,17 @@
         }
     }
 }
+
+@media screen and (min-width: 600px) {
+    #dashboard-page-container {
+        .mobile-icon {
+            display: none;
+        }
+
+    }
+}
+
+
+
+
+

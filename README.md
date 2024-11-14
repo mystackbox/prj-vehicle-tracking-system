@@ -61,7 +61,16 @@ ng serve
 ``` 
 Once the `localhost` server is running, navigate to `http://localhost:4200/` or copy and paste the hyperlink in your browser address bar, then press enter. 
 
-#### 4. Mock API
+#### 4. Google Maps API Integration
+Ensure that you have the Google Maps API Key. Open index.html in the source directory of the project and replace `YOUR_API_KEY` with your Google Maps API Key.
+
+```javascript
+ <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&loading=async&callback=Function.prototype&v=weekly"></script>
+
+``` 
+[Back to top](#table-of-contents)
+
+#### 5. Mock API
 This application uses `json-server` Mock API to mimic real JSON RESTful services. To start json-server, run the following command:
 
 ```javascript
@@ -87,7 +96,7 @@ For more details about Json-server, please follow [ json-server documentation](h
 
 MIT License
 
-Copyright (c) [ 2024 ] [ Yingisani Chiqinda ]
+Copyright (c) [ 2024 ] [ Yingisani ]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
