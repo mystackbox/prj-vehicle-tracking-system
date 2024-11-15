@@ -14,13 +14,12 @@
         background-color: #f8f9fa;  
         vertical-align: bottom;   
         cursor: pointer;
-        padding: 3px;
+        padding: 2px 3px;
 
         
         .v-data-item {
             flex-basis: 25%;
-            padding-top: 4px;
-            padding-left: 4px;
+            padding: 2px 4px;
         }
 
         .v-type {
@@ -44,7 +43,7 @@
             padding: 2px 15px;
             border: none;
             font-size: 11px;
-            background-color: red;
+            background-color: #C0C0C0;
             color: #fff;
             margin-right: 6px;
 
@@ -54,7 +53,7 @@
         }
 
         &:hover {
-            background-color: #FFF5EE;
+            background-color: #F5F5F9; 
         }
     }
 }
