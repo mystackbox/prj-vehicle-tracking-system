@@ -9,7 +9,6 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
-import { FormsModule } from '@angular/forms';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
@@ -19,7 +18,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
     MasterPageComponent,
     HeaderComponent,
     FooterComponent,
-    NavBarComponent,  
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
