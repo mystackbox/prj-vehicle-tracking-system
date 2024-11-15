@@ -5,7 +5,7 @@ width="100%"
 [zoom]="zoom"
 >
 
-<map-marker *ngFor="let vehicle of data"
+<map-marker *ngFor="let vehicle of vehiclesList"
 [position]="vehicle.location.at(-1).position"
 [options]="markerOptions">
 </map-marker>

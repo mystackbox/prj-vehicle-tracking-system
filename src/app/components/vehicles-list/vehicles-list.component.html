@@ -1,4 +1,4 @@
-<div *ngIf="status === 'ready'; errorMessage" class="data-list-container">
+<div *ngIf="status == 'ready'" class="data-list-container">
 
     <div class="vehicle-data v-data-headings">
 
@@ -6,7 +6,7 @@
             <fa-icon class="data-icon" [icon]="['fas', 'id-card-clip']"></fa-icon>  REG NO.
         </div>
         <div class="v-location v-data-item">
-            <fa-icon class="data-icon" [icon]="['fas', 'location-dot']"></fa-icon>  COORDINATES
+            <fa-icon class="data-icon" [icon]="['fas', 'location-dot']"></fa-icon>  LOCATION
         </div>
         <div class="v-loc-time v-data-item">
             <fa-icon class="data-icon" [icon]="['fas', 'clock']"></fa-icon>  TIME STEMP
@@ -19,25 +19,25 @@
             <fa-icon class="data-icon" [icon]="['fas', 'location-arrow']"></fa-icon> 
             ROUTE PATH
         </div>
-
     </div>
 
     <div *ngFor="let vehicle of data; let i = index " class="vehicle-data">
-        <div class="v-reg-number v-data-item v-data-content"> 
+        
+        <div (click)="setSelectedVehicleId(vehicle.id)" class="v-reg-number v-data-item v-data-content"> 
             <b>{{i+1 }}. </b>
             <fa-icon class="data-icon mobile-icon" [icon]="['fas', 'id-card-clip']"></fa-icon> 
             {{vehicle.vehicleRegNo}}
         </div>
-        <div class="v-location v-data-item v-data-content">
+        <div (click)="setSelectedVehicleId(vehicle.id)" class="v-location v-data-item v-data-content">
             <fa-icon class="data-icon  mobile-icon" [icon]="['fas', 'location-dot']"></fa-icon> 
          {{vehicle.location.at(-1).position.lat}},  {{vehicle.location.at(-1).position.lng}}
         </div>
-        <div class="v-loc-time v-data-item v-data-content">
+        <div (click)="setSelectedVehicleId(vehicle.id)" class="v-loc-time v-data-item v-data-content">
             <fa-icon class="data-icon  mobile-icon" [icon]="['fas', 'clock']"></fa-icon>
             {{vehicle.location.at(-1).locTime}} {{+vehicle.location.at(-1).locTime.substring(0,2) < 12 ? ' am ' : ' pm '}} 
         </div>
 
-        <div class="v-type v-data-item v-data-content">
+        <div (click)="setSelectedVehicleId(vehicle.id)" class="v-type v-data-item v-data-content">
             <fa-icon class="data-icon  mobile-icon" [icon]="['fas', 'car']"></fa-icon>
            {{ (vehicle.vehicleType == 1 ? ' bakkie ' : ' track ')}}
        </div>
@@ -45,9 +45,11 @@
             <input type="button" class="details-btn" name="v-details" value="ROUTE" onclick=""/>
         </div>
     </div>
+</div>
 
-    <ng-template #errorMessage>
-        <div>Sorry, {{status}}.</div>
-     </ng-template>
-
+<div *ngIf="this.status == 'error' ">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Sorry!</strong> something went wrong in the server.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
 </div>
