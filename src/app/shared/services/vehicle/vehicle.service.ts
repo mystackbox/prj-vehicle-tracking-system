@@ -6,8 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class VehicleService {
-
-  status: string = 'loading';
+  
   vehicleId: string ='';
   vehiclesList: any;
 

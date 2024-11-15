@@ -9,6 +9,7 @@ import { SearchFilterComponent } from '../../components/search-filter/search-fil
 import { VehiclesListComponent } from '../../components/vehicles-list/vehicles-list.component';
 import { MapComponent } from '../../components/map/map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { LoadingSpinnerComponent } from '../../components/loading-spinner/loading-spinner.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     SearchFilterComponent,
     VehiclesListComponent,
     MapComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     CommonModule,

@@ -17,6 +17,7 @@ export class VehiclesListComponent implements OnInit {
   }
 
   ngOnInit(): void { 
+    
      //Inital call
     this.getVehicles();
 
