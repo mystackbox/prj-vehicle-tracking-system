@@ -29,9 +29,10 @@ Vehicle Tracking System is a single-page application developed with `Angular 2+`
 
 # Tech stack
 - Responsive Web Design (HTML5, SCSS, Bootstrap5, FontAwesome, Lazy-loading).
-- Angular/Typescrit framawork - v18.2.11
+- Angular/Typescript framework - v18.2.11
 - Fetch API - v18.2.11
-- Json server (Mock API) - ver 1.0.0-alpha.3
+- Google Maps
+- Json server (Mock API) - v1.0.0-alpha.3
 
 # How to run the application
 
