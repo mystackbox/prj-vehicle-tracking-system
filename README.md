@@ -13,7 +13,7 @@
 
 # Introduction
 
-Vehicle Tracking System is a single-page application developed with `Angular 2+` framework. The application allows user to track, locate, and monitor vehicles on Google Maps based on the vehicle geolocation. 
+Vehicle Tracking System is a single-page application developed with `Angular 2+` framework. The application allows user to track, locate, and monitor vehicles on Google Maps based on the vehicle geolocation. It keeps refreshing data every 30 seconds.
 
 [Back to top](#table-of-contents)
 
