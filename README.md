@@ -74,7 +74,7 @@ For more details about Json-server, please follow [ json-server documentation](h
 
 [Back to top](#table-of-contents)
 
-## References
+# References
 
 - For more information related to Angular setup, please check out the [Angular documentation](https://angular.io/docs) page.
 - For more information related to Angular CLI, please check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
@@ -84,7 +84,7 @@ For more details about Json-server, please follow [ json-server documentation](h
 
 [Back to top](#table-of-contents)
 
-## Licence
+# Licence
 
 MIT License
 
