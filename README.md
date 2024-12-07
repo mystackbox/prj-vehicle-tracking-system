@@ -1,57 +1,60 @@
 # Vehicle Tracking System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
-
 ![alt text](public/img/UI.png)
  
-## Table of contents
-- [Summary](#summary)
-- [How to run](#how-to-run)
+# Table of contents
+- [Introduction](#introduction)
+- [Environment](#environment)
+- [Tech Stack](#tech-stack)
+- [How to run the application](#how-to-run-the-application)
 - [References](#references)
 - [Licence](#licence)
-- [Author Information](#author-information)
 
 
-## Summary
+# Introduction
 
-Vehicle Tracking System is single-page application developed with `Angular 2+` framework. The application allows the user to track, locate and monitor vehicles using Google Maps. 
+Vehicle Tracking System is a single-page application developed with `Angular 2+` framework. The application allows user to track, locate, and monitor vehicles on Google Maps based on the vehicle geolocation. 
 
 [Back to top](#table-of-contents)
 
-## Development Environmet
+# Environment
 
-Vehicle Tracking System has been built using the following enviroment:
 - Operating System - Windows 11
 - Angular CLI - v18.2.11
-- Visual Studio Code.
+- Visual Studio Code
 - Node.js - v20.11.1
-- Json server (Mock API) - ver 1.0.0-alpha.23
+- Postman - testing the http methods.
 
 [Back to top](#table-of-contents)
 
-## Technologies
-- Responsive Web Design (HTML5, SCSS, Bootstrap5, FontAwesome).
+# Tech stack
+- Responsive Web Design (HTML5, SCSS, Bootstrap5, FontAwesome, Lazy-loading).
 - Angular/Typescrit framawork - v18.2.11
 - Fetch API - v18.2.11
 - Json server (Mock API) - ver 1.0.0-alpha.3
-- Postman - for testing http methods.
 
-## How to run the application
+# How to run the application
 
-#### 1. Installation
-Ensure that you have the following tools installed on your PC:
+### 1. Installation
+Ensure that you have following items are installed in your computer:
 
 - Visual Studio Code
 - Node.js
 - Angular CLI
 
-#### 2. Clone `GitHub` repository
+### 2. Clone `GitHub` repository
 
-Clone the project into your local machine:  [ Vehicle Tracking System ](https://github.com/mystackbox/prj-vehicle-tracking-system). For more information on how to clone the GitHub repository, see [Cloning GitHub repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+Clone the project from Github repository into your local repository:  [ Vehicle Tracking System ](https://github.com/mystackbox/prj-vehicle-tracking-system). For more information about how to clone the GitHub repository, see [Cloning GitHub repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
-#### 3. Running the cloned project
+### 3. Update Google Maps API Key
+Ensure that your in possession of Google Maps API Key. Open index.html in the source directory of the project and replace `YOUR_API_KEY` with your Google Maps API Key.
 
-Run the following command in your `CLI` to install all packages required before running the project.
+```javascript
+ <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&loading=async&callback=Function.prototype&v=weekly"></script>
+``` 
+### 4. Start the Localhost server
+
+Run the following command in your `CLI` to install all the rrequired packages:
 ```javascript
 npm install
 ```
@@ -59,24 +62,14 @@ Run the following command in your `CLI` to start the `localhost` server.
 ```javascript
 ng serve
 ``` 
-Once the `localhost` server is running, navigate to `http://localhost:4200/` or copy and paste the hyperlink in your browser address bar, then press enter. 
+Once the `localhost` server is running, navigate to `http://localhost:4200/` or copy/paste `http://localhost:4200/` in your browser address-bar, then press enter. 
 
-#### 4. Google Maps API Integration
-Ensure that you have the Google Maps API Key. Open index.html in the source directory of the project and replace `YOUR_API_KEY` with your Google Maps API Key.
-
-```javascript
- <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&loading=async&callback=Function.prototype&v=weekly"></script>
-
-``` 
-[Back to top](#table-of-contents)
-
-#### 5. Mock API
+### 5. Start the Mock API server
 This application uses `json-server` Mock API to mimic real JSON RESTful services. To start json-server, run the following command:
 
 ```javascript
 npm run json-server
 ``` 
-
 For more details about Json-server, please follow [ json-server documentation](https://github.com/typicode/json-server).
 
 [Back to top](#table-of-contents)
@@ -89,14 +82,13 @@ For more details about Json-server, please follow [ json-server documentation](h
 - For more information related to Node Package Manager (NPM), please check out the [npm Docs](https://docs.npmjs.com/) page.
 
 
-
 [Back to top](#table-of-contents)
 
 ## Licence
 
 MIT License
 
-Copyright (c) [ 2024 ] [ Yingisani ]
+Copyright (c) 2024 | Yingisani
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
