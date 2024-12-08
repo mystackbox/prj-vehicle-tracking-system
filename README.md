@@ -14,7 +14,7 @@
 
 # Introduction
 
-Vehicle Tracking System was developed using `Angular 2+` framework. The application allows user to track, locate, and monitor vehicles on Google Maps based on the vehicle geolocation. It keeps refreshing data every 30 seconds.
+Vehicle Tracking System was developed using `Angular 2+` framework. The application allows the user to track, locate, and monitor vehicles on Google Maps based on the vehicle geolocation. It keeps refreshing data every 30 seconds.
 
 [Back to top](#table-of-contents)
 
@@ -25,6 +25,7 @@ Vehicle Tracking System was developed using `Angular 2+` framework. The applicat
 - Visual Studio Code
 - Node.js - v20.11.1
 - Postman - testing the http methods.
+- GitHub & Git Bash
 
 [Back to top](#table-of-contents)
 
