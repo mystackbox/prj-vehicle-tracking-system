@@ -1,12 +1,12 @@
 # Vehicle Tracking System
 
-![alt text](public/img/UI.png)
+![alt text](public/github-doc-img/responsiveUI.png)
  
 # Table of contents
 - [Introduction](#introduction)
 - [Environment](#environment)
 - [Tech Stack](#tech-stack)
-- [Responsive UI Layout](#responsive-ui-layout)
+- [UI Layout](#ui-layout)
 - [How to run the application](#how-to-run-the-application)
 - [References](#references)
 - [Licence](#licence)
@@ -38,8 +38,8 @@ Vehicle Tracking System was developed using `Angular 2+` framework. The applicat
 
 [Back to top](#table-of-contents)
 
-# Responsive UI Layout
-![alt text](public/img/responsiveUI.png)
+# UI Layout
+![alt text](public/github-doc-img/UI.png)
 
 [Back to top](#table-of-contents)
 
