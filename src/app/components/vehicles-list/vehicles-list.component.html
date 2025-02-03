@@ -1,3 +1,6 @@
+
+<app-search-filter (searchStringEvent)="searchVehicle($event)"> </app-search-filter>
+
 <div *ngIf="status == 'ready'" class="data-list-container">
 
     <div class="vehicle-data v-data-headings">
@@ -21,7 +24,7 @@
         </div>
     </div>
 
-    <div *ngFor="let vehicle of data; let i = index " class="vehicle-data">
+    <div *ngFor="let vehicle of filteredVehiclesList; let i = index " class="vehicle-data">
         
         <div (click)="setSelectedVehicleId(vehicle.id)" class="v-reg-number v-data-item v-data-content"> 
             <b>{{i+1 }}. </b>
@@ -32,6 +35,7 @@
             <fa-icon class="data-icon  mobile-icon" [icon]="['fas', 'location-dot']"></fa-icon> 
          {{vehicle.location.at(-1).position.lat}},  {{vehicle.location.at(-1).position.lng}}
         </div>
+        
         <div (click)="setSelectedVehicleId(vehicle.id)" class="v-loc-time v-data-item v-data-content">
             <fa-icon class="data-icon  mobile-icon" [icon]="['fas', 'clock']"></fa-icon>
             {{vehicle.location.at(-1).locTime}} {{+vehicle.location.at(-1).locTime.substring(0,2) < 12 ? ' am ' : ' pm '}} 

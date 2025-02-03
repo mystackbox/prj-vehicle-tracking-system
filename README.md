@@ -8,6 +8,7 @@
 - [Tech Stack](#tech-stack)
 - [UI Layout](#ui-layout)
 - [How to run the application](#how-to-run-the-application)
+- [Issues](#issues)
 - [References](#references)
 - [Licence](#licence)
 
@@ -84,13 +85,18 @@ For more details about Json-server, please follow [ json-server documentation](h
 
 [Back to top](#table-of-contents)
 
+# Issues
+- The application uses Google Maps services which requires the APK Key.
+- The aplication uses JSON Server to simulate RESTful API.
+
+[Back to top](#table-of-contents)
+
 # References
 
 - For more information related to Angular setup, please check out the [Angular documentation](https://angular.io/docs) page.
 - For more information related to Angular CLI, please check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 - For more information related to Node.js, please check out the [Introduction to Node.js](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs) page.
 - For more information related to Node Package Manager (NPM), please check out the [npm Docs](https://docs.npmjs.com/) page.
-
 
 [Back to top](#table-of-contents)
 

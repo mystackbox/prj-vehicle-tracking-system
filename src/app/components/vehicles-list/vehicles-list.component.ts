@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { VehicleService } from '../../shared/services/vehicle/vehicle.service';
 
 @Component({
@@ -10,8 +10,10 @@ import { VehicleService } from '../../shared/services/vehicle/vehicle.service';
 export class VehiclesListComponent implements OnInit {
 
   status: string = 'loading';
-  data!: any;
+  vehiclesList!: any;
   errorMessage: string = "";
+  filteredVehiclesList: any;
+
 
   constructor(private vehicleService: VehicleService) {
   }
@@ -42,8 +44,8 @@ export class VehiclesListComponent implements OnInit {
     this.vehicleService
     .getVehicles()
     .then(async (vehicles: Response) => {
-    this.data = await vehicles.json();
-
+    this.vehiclesList = await vehicles.json();
+    this.filteredVehiclesList = this.vehiclesList;
        //ready status
       this.status = 'ready';
 
@@ -53,4 +55,21 @@ export class VehiclesListComponent implements OnInit {
     });
   }
 
+
+  /**
+   * Filters the list and returns the result.
+   * @param searchKeyWord The searck text or string
+   * @returns The array of filtered list
+ */
+  searchVehicle(searchKeyWord: string){
+    
+    if(searchKeyWord === ''){
+      return this.filteredVehiclesList = this.vehiclesList;
+    }
+
+    this.filteredVehiclesList = this.vehiclesList.filter((res: any) =>
+      res?.vehicleRegNo.toLowerCase().includes(searchKeyWord.toLowerCase()),
+    );
+
+  }
 }
