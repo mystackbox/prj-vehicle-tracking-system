@@ -7,11 +7,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SearchFilterComponent {
 
-  //emit event from search component to list component
+  //Creates an event object of type <string>
   @Output() searchStringEvent = new EventEmitter<string>();
 
-
-  //pass the emmitted event from search component to list component
+  /**
+   * Emits an event of type string to vehicle list component.
+   * @param keyword The search text or string
+ */
   search(keyword: string) {
     this.searchStringEvent.emit(keyword);
   }

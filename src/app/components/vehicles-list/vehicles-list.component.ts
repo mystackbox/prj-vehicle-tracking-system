@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { VehicleService } from '../../shared/services/vehicle/vehicle.service';
 
 @Component({
@@ -36,7 +36,10 @@ export class VehiclesListComponent implements OnInit {
     this.vehicleService.setSelectedVehicleId(id);
   }
 
-  //get list of vehicle's latest location
+  /**
+   * Fetches a list of all vehicles.
+   * @returns a a list of all vehicles
+ */
   getVehicles(){
     
     this.status = 'loading';
@@ -55,10 +58,9 @@ export class VehiclesListComponent implements OnInit {
     });
   }
 
-
   /**
    * Filters the list and returns the result.
-   * @param searchKeyWord The searck text or string
+   * @param searchKeyWord The search text or string
    * @returns The array of filtered list
  */
   searchVehicle(searchKeyWord: string){

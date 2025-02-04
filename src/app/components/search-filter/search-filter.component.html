@@ -6,11 +6,11 @@
             </div>
 
             <div class="col-sm-2">
-              <input type="button" id="button-btn" name="button-btn" (click)="search(searchKeyWord.value)" class="form-control form-control-sm search-btn" value="SEARCH" >
+              <input type="button" id="search-btn" name="search-btn" (click)="search(searchKeyWord.value)" class="form-control form-control-sm search-btn" value="SEARCH" >
               
             </div>
             <div class="col-sm-2">
-                <input type="reset" class="form-control form-control-sm clear-btn" (click)="search('')" value="CLEAR">
+                <input type="reset" id="clear-btn" name="clear-btn" (click)="search('')" class="form-control form-control-sm clear-btn"  value="CLEAR">
             </div>
           </div>
     </form>
