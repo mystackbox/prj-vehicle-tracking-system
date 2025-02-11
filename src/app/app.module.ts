@@ -34,8 +34,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
       provide: LocationStrategy,
       useClass: PathLocationStrategy,
     },
-    //Service for pageTitle
-    Title
+    Title //pageTitle interface/service
   ],
  
   bootstrap: [AppComponent]

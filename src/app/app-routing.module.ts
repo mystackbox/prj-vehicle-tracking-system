@@ -6,7 +6,7 @@ import { MasterPageComponent } from './layout/master-page/master-page.component'
 import { NotFoundModule } from './features/not-found/not-found.module';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  // { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: '',
     component: MasterPageComponent,
