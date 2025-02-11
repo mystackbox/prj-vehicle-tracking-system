@@ -9,6 +9,7 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
+
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
@@ -33,11 +34,9 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
       provide: LocationStrategy,
       useClass: PathLocationStrategy,
     },
-
-    //Service for pageTitle
-    Title
-
+    Title //pageTitle interface/service
   ],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { 

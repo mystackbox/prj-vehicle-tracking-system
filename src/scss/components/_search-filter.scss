@@ -6,6 +6,11 @@
             padding: 15px 0;
     }
 
+    .search-field,.search-dropdown {
+        font-family: Arial, FontAwesome;
+        padding: 4px 0px 4px 7px;
+    }
+
     .search-btn, .clear-btn {
         border: none;
         color: #fff;
@@ -25,7 +30,7 @@
         background-color: grey; 
     }
 
-    ::placeholder, .filter-select{
+    ::placeholder, .search-dropdown {
         color: grey;
     }
 }
