@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoadingSpinnerComponent } from './loading-spinner.component';
 
-describe('LoadingSpinnerComponent', () => {
+describe('Loading-Spinner Component', () => {
   let component: LoadingSpinnerComponent;
   let fixture: ComponentFixture<LoadingSpinnerComponent>;
 
