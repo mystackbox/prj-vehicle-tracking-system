@@ -10,6 +10,7 @@ export class MetaTagService {
 
   updateTitle(title: string) {
     this.title.setTitle(`V-Tracker - ${title}`);
+    this.meta.updateTag({ name: 'title', content: title })
   }
 
   updateDescription(desc: string) {

@@ -5,7 +5,7 @@ import { HomeComponent } from './home.component';
 import { Router, RouterModule } from '@angular/router';
 import { Location } from '@angular/common';
 
-describe('HomeComponent', () => {
+describe('Home Component', () => {
   let router: Router;
   let location: Location;
 

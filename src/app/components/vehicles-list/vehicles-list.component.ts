@@ -21,7 +21,7 @@ export class VehiclesListComponent implements OnInit {
 
     //Fetch list every 30 seconds
     setInterval(async () => {
-      console.log('Updated List data..');
+      console.log('Updated list...');
       this.getVehicles();
     }, 30000);
   }

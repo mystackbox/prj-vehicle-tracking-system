@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { VehiclesListComponent } from './vehicles-list.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-describe('VehiclesListComponent', () => {
+describe('Vehicles-List Component', () => {
   let component: VehiclesListComponent;
   let fixture: ComponentFixture<VehiclesListComponent>;
 

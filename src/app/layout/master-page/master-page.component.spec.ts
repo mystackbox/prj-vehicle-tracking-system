@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MasterPageComponent } from './master-page.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-describe('MasterPageComponent', () => {
+describe('MasterPage Component', () => {
   let component: MasterPageComponent;
   let fixture: ComponentFixture<MasterPageComponent>;
 
@@ -19,7 +19,8 @@ describe('MasterPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create  master-page component', () => {
     expect(component).toBeTruthy();
   });
+
 });
