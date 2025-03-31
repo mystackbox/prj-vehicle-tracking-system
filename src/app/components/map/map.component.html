@@ -6,7 +6,7 @@ width="100%"
 [zoom]="zoom"
 >
 
-<app-loading-spinner *ngIf="status == 'loading'"></app-loading-spinner>
+<!-- <app-loading-spinner *ngIf="status == 'loading'"></app-loading-spinner> -->
 
 <map-marker *ngFor="let vehicle of vehiclesList"
 [position]="vehicle.location.at(-1).position"

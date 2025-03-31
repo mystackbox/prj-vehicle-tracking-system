@@ -9,48 +9,47 @@ import { VehicleService } from '../../shared/services/vehicle/vehicle.service';
 })
 export class VehiclesListComponent implements OnInit {
   status: string = 'loading';
-  vehiclesList!: any;
+  vehiclesList: any;
+  errorStatus = false;
   errorMessage: string = '';
-  filteredVehiclesList: any;
+  vehicles: any;
 
-  constructor(private vehicleService: VehicleService) {}
-
-  ngOnInit(): void {
-    //Inital call
-    this.getVehicles();
-
-    //Fetch list every 30 seconds
-    setInterval(async () => {
-      console.log('Updated list...');
-      this.getVehicles();
-    }, 30000);
-  }
+  constructor(private vehiclesApi: VehicleService) {}
 
    /**
-   * Sets vehicle id.
-   * @param id sets vehicle id
+   * Initial calls
    */
-  setSelectedVehicleId(id: string) {
-    this.vehicleService.setSelectedVehicleId(id);
+  async ngOnInit() {
+    this.getVehicles();
+    this.reLoadVehiclesList();
   }
 
   /**
-   * Fetches all vehicles.
-   * @returns list of all vehicles
+   * Fetches the list of vehicles.
+   * @returns an array of vehicle objects
    */
-  getVehicles() {
-    this.status = 'loading';
+  async getVehicles() {
+    try {
+      this.vehiclesList = await this.vehiclesApi.get('/vehicles');
+      this.vehicles = this.vehiclesList;
+      this.errorStatus = false;
+      console.log('Refreshed list...');
+      console.log(this.vehicles);
+    } catch (error: any) {
+      this.errorStatus = true;
+      this.errorMessage = error.message;
+      console.error(error.message);
+    }
+  }
 
-    this.vehicleService
-      .getVehicles()
-      .then(async (vehicles: Response) => {
-        this.vehiclesList = await vehicles.json();
-        this.filteredVehiclesList = this.vehiclesList;
-        this.status = 'ready';
-      })
-      .catch((error: Error) => {
-        this.status = 'error';
-      });
+  /**
+   * Fetches the list of vehicles every 5 seconds.
+   * @returns an array of vehicle objects
+   */
+   reLoadVehiclesList() {
+    setInterval(() => {
+      this.getVehicles();
+    }, 30000);
   }
 
   /**
@@ -60,11 +59,14 @@ export class VehiclesListComponent implements OnInit {
    */
   searchVehicle(searchKeyword: string) {
     if (searchKeyword === '') {
-      return (this.filteredVehiclesList = this.vehiclesList);
+      console.log('search returned unfiltered list...');
+      return (this.vehicles = this.vehiclesList);
     }
 
-    this.filteredVehiclesList = this.vehiclesList.filter((res: any) =>
-      res?.vehicleRegNo.toLowerCase().includes(searchKeyword.toLowerCase())
+    this.vehicles = this.vehiclesList.filter((response: any) =>
+      response?.vehicleRegNo.toLowerCase().includes(searchKeyword.toLowerCase())
     );
+
+    console.log('search returned filtered list...');
   }
 }

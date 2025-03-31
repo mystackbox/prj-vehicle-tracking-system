@@ -1,7 +1,7 @@
 
 <app-search-filter (searchStringEvent)="searchVehicle($event)"> </app-search-filter>
 
-<div *ngIf="status == 'ready'" class="data-list-container">
+<div *ngIf="errorStatus == false"  class="data-list-container">
 
     <div class="vehicle-data v-data-headings">
 
@@ -24,24 +24,24 @@
         </div>
     </div>
 
-    <div *ngFor="let vehicle of filteredVehiclesList; let i = index " class="vehicle-data">
+    <div *ngFor="let vehicle of vehicles; let i = index " class="vehicle-data">
         
-        <div (click)="setSelectedVehicleId(vehicle.id)" class="v-reg-number v-data-item v-data-content"> 
+        <div  class="v-reg-number v-data-item v-data-content"> 
             <b>{{i+1 }}. </b>
             <fa-icon class="data-icon mobile-icon" [icon]="['fas', 'id-card-clip']"></fa-icon> 
             {{vehicle.vehicleRegNo}}
         </div>
-        <div (click)="setSelectedVehicleId(vehicle.id)" class="v-location v-data-item v-data-content">
+        <div  class="v-location v-data-item v-data-content">
             <fa-icon class="data-icon  mobile-icon" [icon]="['fas', 'location-dot']"></fa-icon> 
          {{vehicle.location.at(-1).position.lat}},  {{vehicle.location.at(-1).position.lng}}
         </div>
         
-        <div (click)="setSelectedVehicleId(vehicle.id)" class="v-loc-time v-data-item v-data-content">
+        <div  class="v-loc-time v-data-item v-data-content">
             <fa-icon class="data-icon  mobile-icon" [icon]="['fas', 'clock']"></fa-icon>
             {{vehicle.location.at(-1).locTime}} {{+vehicle.location.at(-1).locTime.substring(0,2) < 12 ? ' am ' : ' pm '}} 
         </div>
 
-        <div (click)="setSelectedVehicleId(vehicle.id)" class="v-type v-data-item v-data-content">
+        <div  class="v-type v-data-item v-data-content">
             <fa-icon class="data-icon  mobile-icon" [icon]="['fas', 'car']"></fa-icon>
            {{ (vehicle.vehicleType == 1 ? ' bakkie ' : ' truck ')}}
        </div>
@@ -51,9 +51,9 @@
     </div>
 </div>
 
-<div *ngIf="this.status == 'error' ">
+<div *ngIf="errorStatus == true">
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Sorry!</strong> something went wrong in the server.
+        <fa-icon class="data-icon" [icon]="['fas', 'circle-exclamation']"></fa-icon> {{ this.errorMessage}}.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
 </div>
