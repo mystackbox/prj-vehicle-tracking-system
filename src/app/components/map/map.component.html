@@ -1,19 +1,42 @@
+<google-map
+  height="30vh"
+  width="100%"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options"
+  >
 
-<google-map 
-[options]="mapOptions"
-height="30vh"
-width="100%"
-[zoom]="zoom"
+  <map-marker *ngFor="let vehicle of vehicles"
+  #markerElem ="mapMarker" 
+  [position]="vehicle.location.at(-1).position"
+  [title]="vehicle.vehicleRegNo"
+  [options]="markers.options"
+  (mapClick)="openInfo(markerElem, vehicle.vehicleRegNo)"
+  class="icon"
 >
-
-<app-loading-spinner *ngIf="status == 'loading'"></app-loading-spinner>
-
-<map-marker *ngFor="let vehicle of vehiclesList"
-[position]="vehicle.location.at(-1).position"
-[options]="markerOptions">
 </map-marker>
 
+
+  <map-info-window [options]="infoWinOptions">
+    <div class="custom-info-window">
+    
+      <p class="info-content">
+        <img src="map-icon/map-car-icon.png" alt="tracker image" class="map-info-window-image" />
+        {{ infoContent.toUpperCase()}}
+      </p>
+    </div>
+    </map-info-window>
+
+
+
+<div *ngIf="loading == true" class="spinner-container">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
 </google-map>
+
+
+
 
 
 

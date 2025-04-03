@@ -1,5 +1,5 @@
 .data-list-container {
-    box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 24px;
+
     display: flex;
     flex-direction: column;
     row-gap: 2px;
@@ -8,32 +8,52 @@
         font-weight: bold;
     }
 
+    .spinner-container {
+        position: absolute;
+        left: 25%;
+        right: 25%;
+    }
+
     .vehicle-data {
         display: flex;
         flex-direction: row;
-        background-color: #f8f9fa;  
-        vertical-align: bottom;   
+        vertical-align: bottom;
         cursor: pointer;
-        padding: 2px 3px;
+        margin: 3px 0px;
 
-        
+        &:hover {
+            box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 24px;
+
+        }
+
+        .v-data-content:focus {
+            background-color: orange;
+        }
+
         .v-data-item {
             flex-basis: 25%;
-            padding: 2px 4px;
+            padding: 3px 7px;
+            margin: 0;
+            background-color: #f8f9fa;
         }
 
         .v-type {
             text-transform: uppercase;
         }
 
-        .v-reg-number, .v-loc-time {
+        .v-reg-number,
+        .v-loc-time {
             text-transform: uppercase;
+            
+            &:focus {
+                background-color: orange;
+            }
         }
 
         .v-data-item:nth-child(5) {
             text-align: right;
         }
-      
+
         .data-icon {
             margin-right: 5px;
             color: grey;
@@ -51,11 +71,15 @@
                 background-color: orange;
             }
         }
-
-        &:hover {
-            background-color: #F5F5F9; 
-        }
     }
+
+}
+
+.error-messages {
+    padding: 20px 10px;
+    font-size: 16px;
+    color: brown;
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 0px 24px;
 }
 
 @media screen and (max-width: 600px) {
@@ -63,22 +87,25 @@
         .content-list {
             .data-list-container {
                 row-gap: 15px;
-                box-shadow:none;
+                box-shadow: none;
 
                 .v-data-headings {
                     display: none;
                 }
-                
-                .vehicle-data { 
+
+                .vehicle-data {
                     flex-direction: column;
                     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
 
                     .v-data-item {
                         padding-bottom: 3px;
-                        border-bottom: 1px solid  rgba(149, 157, 165, 0.5);  
+                        border-bottom: 1px solid rgba(149, 157, 165, 0.5);
 
-                        &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+                        &:nth-child(2),
+                        &:nth-child(3),
+                        &:nth-child(4),
+                        &:nth-child(5) {
                             padding-left: 17px;
                         }
 
@@ -86,7 +113,7 @@
                             text-align: left;
                         }
                     }
-                 }
+                }
             }
         }
     }
@@ -100,8 +127,3 @@
 
     }
 }
-
-
-
-
-

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../../shared/services/vehicle/vehicle.service';
+import { PassDataService } from '../../shared/services/passData/pass-data.service';
 
 @Component({
   selector: 'app-vehicles-list',
@@ -8,49 +9,35 @@ import { VehicleService } from '../../shared/services/vehicle/vehicle.service';
   inputs: ['vehicleData'],
 })
 export class VehiclesListComponent implements OnInit {
-  status: string = 'loading';
-  vehiclesList!: any;
+  vehiclesList: any;
+  vehicles: any;
+  errorStatus: boolean = false;
   errorMessage: string = '';
-  filteredVehiclesList: any;
 
-  constructor(private vehicleService: VehicleService) {}
+  constructor(
+    private vehiclesApi: VehicleService,
+    private passIdApi: PassDataService
+  ) {} //DI
 
-  ngOnInit(): void {
-    //Inital call
-    this.getVehicles();
-
-    //Fetch list every 30 seconds
-    setInterval(async () => {
-      console.log('Updated list...');
-      this.getVehicles();
-    }, 30000);
-  }
-
-   /**
-   * Sets vehicle id.
-   * @param id sets vehicle id
+  /**
+   * Initial calls
    */
-  setSelectedVehicleId(id: string) {
-    this.vehicleService.setSelectedVehicleId(id);
+  ngOnInit(): void {
+    this.getVehicles();
   }
 
   /**
-   * Fetches all vehicles.
-   * @returns list of all vehicles
+   * Fetches a list of vehicles.
+   * @returns an array of objects for vehicles
    */
-  getVehicles() {
-    this.status = 'loading';
-
-    this.vehicleService
-      .getVehicles()
-      .then(async (vehicles: Response) => {
-        this.vehiclesList = await vehicles.json();
-        this.filteredVehiclesList = this.vehiclesList;
-        this.status = 'ready';
-      })
-      .catch((error: Error) => {
-        this.status = 'error';
-      });
+  async getVehicles(): Promise<any> {
+    try {
+      this.vehiclesList = await this.vehiclesApi.get('/vehicles');
+      this.vehicles = this.vehiclesList;
+    } catch (error: any) {
+      this.errorStatus = true;
+      this.errorMessage = error.message;
+    }
   }
 
   /**
@@ -58,13 +45,27 @@ export class VehiclesListComponent implements OnInit {
    * @param searchKeyword search text or string
    * @returns array of filtered list
    */
-  searchVehicle(searchKeyword: string) {
+  searchVehicle(searchKeyword: string): void {
     if (searchKeyword === '') {
-      return (this.filteredVehiclesList = this.vehiclesList);
+      return (this.vehicles = this.vehiclesList);
     }
-
-    this.filteredVehiclesList = this.vehiclesList.filter((res: any) =>
-      res?.vehicleRegNo.toLowerCase().includes(searchKeyword.toLowerCase())
+    this.vehicles = this.vehiclesList.filter((response: any) =>
+      response?.vehicleRegNo.toLowerCase().includes(searchKeyword.toLowerCase())
     );
+  }
+
+  /**
+   * Sets vehicle id.
+   * @param id sets vehicle id
+   */
+  locateVehicle(id: number): void {
+    this.passIdApi.updateId(id);
+  }
+
+  /**
+   * Resets values to default.
+   */
+  ngOnDestroy() {
+    this.vehicles = null;
   }
 }

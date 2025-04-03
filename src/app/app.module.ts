@@ -12,6 +12,7 @@ import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
 
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { VehicleService } from './shared/services/vehicle/vehicle.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
     FontAwesomeModule,
   ],
   providers: [
-    provideClientHydration(),
+    VehicleService,
 
     //Url requests - structure
     {
