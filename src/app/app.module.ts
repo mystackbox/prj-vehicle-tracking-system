@@ -28,7 +28,6 @@ import { VehicleService } from './shared/services/vehicle/vehicle.service';
     FontAwesomeModule,
   ],
   providers: [
-    provideClientHydration(),
     VehicleService,
 
     //Url requests - structure

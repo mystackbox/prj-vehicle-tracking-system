@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { VehicleService } from '../../shared/services/vehicle/vehicle.service';
+import { GoogleMap, MapInfoWindow } from '@angular/google-maps';
+import { PassDataService } from '../../shared/services/passData/pass-data.service';
 
 @Component({
   selector: 'app-map',
@@ -7,96 +9,168 @@ import { VehicleService } from '../../shared/services/vehicle/vehicle.service';
   styleUrl: './map.component.scss',
 })
 export class MapComponent {
-  status: string = 'loading';
-  public today = Date.now();
+  @ViewChild(GoogleMap, { static: false }) map?: GoogleMap;
+  @ViewChild(MapInfoWindow, { static: false }) info?: MapInfoWindow;
 
-  //vehicle data
-  vehiclesList!: any;
-  vehicle!: any;
-  vehicleLocation!: string;
-  vehiclePosition: any;
+  zoom = 10;
+  center: any;
+  label: string = '';
+  mapTitle: string = '';
 
-  //Position the markers
-  markerPositions: google.maps.LatLngLiteral[] = [];
-  zoom = 8;
+  vehiclesList: any;
+  vehicleId: number = 0;
+  responseData: any;
+  selectedVehicle: any;
+  vehicles: any;
 
-  //Map default options
-  mapOptions: google.maps.MapOptions = {
-    center: { lat: -26.03, lng: 28.095 },
-    draggable: true,
+  errorStatus: boolean = false;
+  errorMessage: string = '';
+  loading: boolean = false;
+
+  options: google.maps.MapOptions = {
+    center: { lat: -26.14, lng: 28.095 },
     zoomControl: false,
     streetViewControl: false,
+    scrollwheel: true,
+    disableDoubleClickZoom: true,
+    mapTypeId: 'roadmap',
+    maxZoom: 15,
+    minZoom: 8,
+    fullscreenControl: false,
+    mapTypeControl: false,
   };
 
-  //Marker default options
-  markerOptions: google.maps.MarkerOptions = {
-    draggable: false,
+  markers: any = {};
+  infoContent: String = '';
+  infoWinOptions: google.maps.InfoWindowOptions = {
+    minWidth: 200,
+    headerContent: 'REGISTRATION NUMBER'
   };
 
   //DI
-  constructor(private vehicleService: VehicleService) {}
+  constructor(
+    private vehiclesApi: VehicleService,
+    private passIdApi: PassDataService
+  ) {}
 
+    /**
+   * Initial calls
+   */
   ngOnInit(): void {
-    //Inital call
-    // this.getVehicles();
+    this.markersConfig();
+    this.getVehicles();
 
-    //Fetch vehicles list every 30 seconds
-    // setInterval(async () => {
-    //   let dateTime = new Date();
-    //   console.log('Refresh time: ' + dateTime);
-    //   this.getVehicles();
-    // }, 30000);
+    if (this.errorStatus == false) {
+      this.refreshData();
+    }
 
-    //Retrieve vehicle per Id onChange
-    // this.locateVehicle();
+    this.passIdApi.selectedId.subscribe((id) => {
+      this.vehicleId = id;
+
+      if (this.vehicleId > 0) {
+        this.locateVehicle(this.vehicleId);
+      }
+    });
   }
 
-  /* 
-    Retrieve a list of vehicles
-  */
-  getVehicles(): any {
-    // this.status = 'loading';
+   /**
+   * Sets markers default parameters 
+   * @returns ojbects of marker (icon settings, markers settings)
+   */
+  markersConfig(): void {
+    console.log('being executed inside [addMarker]...');
+    const icon = {
+      url: '../map-icon/pin.png', // url
+      scaledSize: new google.maps.Size(28, 30), // scaled size
+      origin: new google.maps.Point(0, 0), // origin
+      anchor: new google.maps.Point(0, 30), // anchor
+    };
 
-    // this.vehicleService
-    //   .getVehicles()
-    //   .then(async (vehicles: Response) => {
-    //     this.vehiclesList = await vehicles.json();
+    this.markers = {
+      label: {
+        color: 'orange',
+        fontWeight: 'bold',
+        fontSize: '14px',
+        text: 'vehicle',
+      },
 
-    //     setTimeout(() => {
-    //       this.status = 'ready';
-    //     }, 1000);
-    //   })
-    //   .catch((error: Error) => {
-    //     this.status = 'error';
-    //   });
+      options: {
+        draggable: false,
+        icon: icon,
+        content: 'Example',
+        gmpClickable: true,
+        animation: google.maps.Animation.BOUNCE,
+      },
+    };
   }
 
-  /* 
-    locate and zoom the location of vehicle on the Map 
-  */
-  locateVehicle(): void {
-    // this.vehicleService.getSelectedVehicleId().subscribe((id: string) => {
-    //   if (id) {
-    //     this.status = 'loading';
+  /**
+   * Sets markers content
+   * @returns marker content to be displayed 
+   */
+  openInfo(marker: any, content: any): void {
+    this.infoContent = content;
+    this.info?.open(marker);
+  }
 
-    //     this.vehicleService
-    //       .getVehicle(id)
-    //       .then(async (vehicle: Response) => {
-    //         this.vehicle = await vehicle.json();
+   /**
+   * Fetches a list of vehicles.
+   * @returns an array of objects for vehicles
+   */
+  async getVehicles(): Promise<any> {
+    try {
+      this.loading = true;
 
-    //         this.zoom = 12;
-    //         this.mapOptions = {
-    //           center: this.vehicle.location.at(-1).position,
-    //         };
+      setTimeout(() => {
+        this.loading = false;
+      }, 1500);
 
-    //         setTimeout(() => {
-    //           this.status = 'ready';
-    //         }, 800);
-    //       })
-    //       .catch((error: Error) => {
-    //         this.status = 'error';
-    //       });
-    //   }
-    // });
+      this.vehiclesList = await this.vehiclesApi.get('/vehicles');
+      this.vehicles = this.vehiclesList;
+
+    } catch (error: any) {
+      this.errorMessage = error.message;
+    }
+  }
+
+  /**
+   * Auto-fetches a list of vehicles to be plotted on the map.
+   * @returns an array of vehicle objects
+   */
+  refreshData(): any {
+    console.log('being executed inside [refreshData]...');
+
+    setInterval(() => {
+      // this.markers.options.animation = google.maps.Animation.BOUNCE;
+      this.getVehicles();
+    }, 10000);
+  }
+
+  /**
+   * Fetches vehicle details with the matching id.
+   * @param id selected vehicle id
+   * @returns vehicle objects
+   */
+  async locateVehicle(id: number): Promise<void> {
+    console.log('marker changed to BOUNCE inside [locateVehicle]...');
+    try {
+      console.log('Id sent for filtering ' + id);
+      this.responseData = await this.vehiclesApi.getVehicle('/vehicles/' + id);
+
+      this.zoom = 12;
+      this.options = {
+        center: this.responseData.location.at(-1).position,
+      };
+    } catch (error: any) {
+      this.errorStatus = true;
+      this.errorMessage = error.message;
+    }
+  }
+
+  /**
+   * Resets values to default.
+   */
+  ngOnDestroy() {
+    this.vehicleId = 0;
   }
 }

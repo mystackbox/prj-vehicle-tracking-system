@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../../shared/services/vehicle/vehicle.service';
+import { PassDataService } from '../../shared/services/passData/pass-data.service';
 
 @Component({
   selector: 'app-vehicles-list',
@@ -8,48 +9,35 @@ import { VehicleService } from '../../shared/services/vehicle/vehicle.service';
   inputs: ['vehicleData'],
 })
 export class VehiclesListComponent implements OnInit {
-  status: string = 'loading';
   vehiclesList: any;
-  errorStatus = false;
-  errorMessage: string = '';
   vehicles: any;
+  errorStatus: boolean = false;
+  errorMessage: string = '';
 
-  constructor(private vehiclesApi: VehicleService) {}
+  constructor(
+    private vehiclesApi: VehicleService,
+    private passIdApi: PassDataService
+  ) {} //DI
 
-   /**
+  /**
    * Initial calls
    */
-  async ngOnInit() {
+  ngOnInit(): void {
     this.getVehicles();
-    this.reLoadVehiclesList();
   }
 
   /**
-   * Fetches the list of vehicles.
-   * @returns an array of vehicle objects
+   * Fetches a list of vehicles.
+   * @returns an array of objects for vehicles
    */
-  async getVehicles() {
+  async getVehicles(): Promise<any> {
     try {
       this.vehiclesList = await this.vehiclesApi.get('/vehicles');
       this.vehicles = this.vehiclesList;
-      this.errorStatus = false;
-      console.log('Refreshed list...');
-      console.log(this.vehicles);
     } catch (error: any) {
       this.errorStatus = true;
       this.errorMessage = error.message;
-      console.error(error.message);
     }
-  }
-
-  /**
-   * Fetches the list of vehicles every 5 seconds.
-   * @returns an array of vehicle objects
-   */
-   reLoadVehiclesList() {
-    setInterval(() => {
-      this.getVehicles();
-    }, 30000);
   }
 
   /**
@@ -57,16 +45,27 @@ export class VehiclesListComponent implements OnInit {
    * @param searchKeyword search text or string
    * @returns array of filtered list
    */
-  searchVehicle(searchKeyword: string) {
+  searchVehicle(searchKeyword: string): void {
     if (searchKeyword === '') {
-      console.log('search returned unfiltered list...');
       return (this.vehicles = this.vehiclesList);
     }
-
     this.vehicles = this.vehiclesList.filter((response: any) =>
       response?.vehicleRegNo.toLowerCase().includes(searchKeyword.toLowerCase())
     );
+  }
 
-    console.log('search returned filtered list...');
+  /**
+   * Sets vehicle id.
+   * @param id sets vehicle id
+   */
+  locateVehicle(id: number): void {
+    this.passIdApi.updateId(id);
+  }
+
+  /**
+   * Resets values to default.
+   */
+  ngOnDestroy() {
+    this.vehicles = null;
   }
 }

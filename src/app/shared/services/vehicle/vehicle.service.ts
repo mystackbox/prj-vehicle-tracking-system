@@ -6,8 +6,17 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class VehicleService {
-  private API_BASE_URL = environment.vehiclesUrl;
 
+  private API_BASE_URL = environment.vehiclesUrl; //base url
+
+   /**
+   * Handles the http requests (GET, POST, PUT, DELETE).
+   * @param endpoint http request url
+   * @param method http method
+   * @param body data to be sent to the server
+   * @param header http header information
+   * @returns http response (data, error, etc)
+   */
   async fetchData(
     endpoint: string,
     method: string = 'GET',
@@ -74,7 +83,23 @@ export class VehicleService {
     }
   }
 
+   /**
+   * Sends the http request (GET).
+   * @param endpoint http request url
+   * @param header http header information
+   * @returns http response (vehicles list, error, etc)
+   */
   get(endpoint: string, headers: any = {}) {
+    return this.fetchData(endpoint, 'GET', null, headers);
+  }
+
+   /**
+   * Sends the http request (GET) for vehicle with specific id.
+   * @param endpoint http request url
+   * @param header http header information
+   * @returns http response (vehicle object, error, etc)
+   */
+  getVehicle(endpoint: string, headers: any = {}) {
     return this.fetchData(endpoint, 'GET', null, headers);
   }
 }
