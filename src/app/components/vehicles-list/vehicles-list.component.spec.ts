@@ -20,7 +20,12 @@ describe('Vehicles-List Component', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create vehicles list component', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should fetch vehicles list when component ', () => {
+    expect(component.ngOnInit.call).toBeTruthy();
+  });
+
 });
