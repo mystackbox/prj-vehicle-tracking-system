@@ -104,9 +104,10 @@ export class MapComponent {
     };
   }
 
-  /**
-   * Sets markers content
-   * @returns marker content to be displayed 
+   /**
+   * Filters vehicles list and returns the result.
+   * @param marker template variable for marker
+   * @param content content to be displayed when marker is clicked
    */
   openInfo(marker: any, content: any): void {
     this.infoContent = content;
@@ -143,7 +144,7 @@ export class MapComponent {
     setInterval(() => {
       // this.markers.options.animation = google.maps.Animation.BOUNCE;
       this.getVehicles();
-    }, 10000);
+    }, 30000);
   }
 
   /**

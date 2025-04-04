@@ -1,5 +1,9 @@
 @use '../abstracts' as *;
 
+.nav-link:hover {
+    color: red;
+ }
+ 
 @media screen and (max-width: 992px) {
 
     .navbar {
